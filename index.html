@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEN IA | Ingeniería Operativa & IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .glass { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(12px); }
+        .progress-bar { transition: width 0.4s ease-in-out; }
+        .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-900 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Navbar -->
+    <nav class="p-4 sm:px-8 border-b border-slate-200/80 bg-white/90 sticky top-0 z-50 backdrop-blur-md flex justify-between items-center max-w-6xl mx-auto w-full">
+        <div class="text-xl sm:text-2xl font-extrabold tracking-tighter text-slate-900">
+            GEN <span class="text-blue-600">IA</span>
+        </div>
+        <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+            <a href="#soluciones" class="hover:text-blue-600 transition">Qué puedo hacer</a>
+            <a href="#calculadora" class="hover:text-blue-600 transition">Calculadora</a>
+            <a href="#sobre-mi" class="hover:text-blue-600 transition">Sobre mí</a>
+            <a href="#contacto" class="hover:text-blue-600 transition">Contacto</a>
+        </div>
+        <a href="#calculadora" class="bg-blue-600 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-blue-700 transition">
+            Diagnóstico Gratis
+        </a>
+    </nav>
+
+    <!-- Header / Value Prop -->
+    <header class="py-12 text-center px-4 max-w-4xl mx-auto">
+        <div class="inline-block px-3.5 py-1 mb-4 text-xs font-semibold uppercase tracking-wider text-blue-700 bg-blue-50 rounded-full border border-blue-200">
+            Ingeniería Operativa con Inteligencia Artificial
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mb-4 tracking-tight leading-tight text-slate-900">
+            Deja de botar plata.<br><span class="text-blue-600">Optimiza con IA.</span>
+        </h1>
+        <p class="text-sm sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+            Eliminamos cuellos de botella, automatizamos tareas repetitivas y diseñamos arquitecturas digitales para que tu empresa opere con la máxima eficiencia.
+        </p>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-4xl mx-auto px-4 pb-16 w-full space-y-16">
+
+        <!-- SECCIÓN: QUÉ PUEDO HACER (SOLUCIONES DE INGENIERÍA) -->
+        <section id="soluciones" class="space-y-6">
+            <div class="text-center max-w-xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">¿Qué puedo hacer por tu negocio?</h2>
+                <p class="text-xs sm:text-sm text-slate-500 mt-1">Soluciones empaquetadas de ingeniería e inteligencia artificial listas para implementar.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Solución A -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center font-bold text-lg mb-4">💬</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Enrutador y Calificador de WhatsApp con IA</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Un agente de IA atiende los mensajes de prospectos 24/7, responde dudas en lenguaje natural, cualifica al comprador y pasa los datos ordenados a tu equipo de ventas.
+                    </p>
+                </div>
+
+                <!-- Solución B -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center font-bold text-lg mb-4">📄</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Extractor OCR de Facturas y Pedidos</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Lee automáticamente comprobantes de pago o listas de pedidos enviadas en foto o PDF por WhatsApp y procesa la información directo en tu ERP o base de datos.
+                    </p>
+                </div>
+
+                <!-- Solución C -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center font-bold text-lg mb-4">📊</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">CRM Automatizado & Alertas de Seguimiento</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Un tablero operativo en Airtable/Notion conectado a WhatsApp que envía recordatorios automáticos de seguimiento a clientes con cotizaciones pendientes.
+                    </p>
+                </div>
+
+                <!-- Solución D -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center font-bold text-lg mb-4">📈</div>
+                    <h3 class="font-bold text-slate-900 text-base mb-2">Dashboard Operativo en Tiempo Real</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Consolida las ventas, tiempos de respuesta y métricas clave en un panel visual centralizado para que el dueño sepa exactamente qué pasa en su negocio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CALCULADORA DE FUGA OPERATIVA -->
+        <section id="calculadora" class="glass p-6 sm:p-8 rounded-3xl shadow-xl border border-slate-200 relative overflow-hidden">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-extrabold text-slate-900">Calculadora de Fuga Operativa</h2>
+                <p class="text-xs text-slate-500 mt-1">Estima cuánto dinero está perdiendo tu empresa cada mes en tareas repetitivas.</p>
+            </div>
+            
+            <!-- Progress Bar -->
+            <div id="progress-container" class="mb-6">
+                <div class="flex justify-between items-center text-xs font-bold text-slate-500 mb-2">
+                    <span id="step-label">PASO 1 DE 2: Tu Empresa</span>
+                    <span id="step-percent" class="text-blue-600">50%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2">
+                    <div id="progress-bar" class="bg-blue-600 h-2 rounded-full progress-bar" style="width: 50%;"></div>
+                </div>
+            </div>
+
+            <form id="diagnosticForm" onsubmit="event.preventDefault();">
+                
+                <!-- PASO 1: Datos de contacto y filtro de cualificación -->
+                <div id="step-1" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-800 mb-1">¿Cómo te llamas?</label>
+                        <input type="text" id="lead-name" placeholder="Ej: Carlos Mendoza" required class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-800 mb-1">Tu WhatsApp corporativo</label>
+                        <input type="tel" id="lead-phone" placeholder="Ej: +58 412 1234567" required class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm">
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-800 mb-1">Sector o Industria</label>
+                            <input type="text" id="industry" placeholder="Ej: Ferretería, Distribución, Servicios" required class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-800 mb-1">Equipo en oficina / ventas</label>
+                            <select id="team-size" class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm">
+                                <option value="1">1 persona (Trabajo solo/a)</option>
+                                <option value="2-4" selected>2 a 4 personas</option>
+                                <option value="5-10">5 a 10 personas</option>
+                                <option value="11+">Más de 10 personas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="button" onclick="goToStep(2)" class="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg text-base mt-4 flex items-center justify-center gap-2">
+                        Siguiente: Calcular mi Fuga <span class="text-xl">→</span>
+                    </button>
+                </div>
+
+                <!-- PANTALLA DE DESCALIFICACIÓN -->
+                <div id="disqualified-screen" class="hidden text-center py-6 space-y-4 animate-fadeIn">
+                    <div class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto text-2xl font-bold">
+                        💡
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">¡Gracias por tu interés en GEN IA!</h3>
+                    <p class="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                        Nuestras arquitecturas de ingeniería están optimizadas para empresas que operan con **equipos de trabajo activos (2 o más personas)**.
+                    </p>
+                    <p class="text-xs text-slate-500 max-w-sm mx-auto">
+                        Si trabajas de forma independiente, escríbenos directamente a nuestro WhatsApp para enviarte guías y contenido sobre automatización básica.
+                    </p>
+                    <div class="pt-4">
+                        <a href="https://wa.me/tu-numero-aqui?text=Hola,%20soy%20emprendedor%20independiente%20y%20quiero%20información%20educativa" target="_blank" class="inline-block bg-emerald-600 text-white font-bold py-3.5 px-6 rounded-xl text-sm hover:bg-emerald-700 transition shadow-md">
+                            Ir al WhatsApp Educativo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PASO 2: Métricas de cálculo financiero -->
+                <div id="step-2" class="space-y-5 hidden">
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-800 mb-1">
+                            ¿Cuánto cobra tu negocio en una compra habitual?
+                        </label>
+                        <span class="block text-xs text-slate-500 mb-2">Monto promedio que suele gastar un cliente ($).</span>
+                        <div class="relative">
+                            <span class="absolute left-4 top-3.5 text-slate-400 font-bold">$</span>
+                            <input type="number" id="avg-ticket" placeholder="Ej: 150" required class="w-full p-3.5 pl-9 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm font-bold text-slate-900">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-800 mb-1">Horas perdidas AL DÍA por persona</label>
+                            <span class="block text-xs text-slate-500 mb-2">En WhatsApp, copiar datos o cotizar.</span>
+                            <select id="daily-hours" class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm font-medium">
+                                <option value="1">~1 hora al día</option>
+                                <option value="2" selected>~2 horas al día</option>
+                                <option value="3">~3 a 4 horas al día</option>
+                                <option value="5">+5 horas (Casi todo el día)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-800 mb-1">Sueldo promedio mensual ($)</label>
+                            <span class="block text-xs text-slate-500 mb-2">Por empleado administrativo/ventas.</span>
+                            <select id="salary-range" class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm font-medium">
+                                <option value="250">$250 / mes</option>
+                                <option value="400" selected>$400 / mes</option>
+                                <option value="600">$600+ / mes</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-800 mb-1">¿Cuál es tu cuello de botella principal?</label>
+                        <select id="main-bottleneck" class="w-full p-3.5 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 transition bg-slate-50 focus:bg-white text-sm font-medium">
+                            <option value="whatsapp_slow">Lentitud al responder WhatsApp y cotizar (Se van con la competencia)</option>
+                            <option value="manual_errors">Errores al anotar pedidos, precios o despachos</option>
+                            <option value="excel_copy">Perdemos tiempo copiando datos entre WhatsApp, Excel o sistemas</option>
+                            <option value="no_control">Falta de reportes y control de ventas en tiempo real</option>
+                        </select>
+                    </div>
+
+                    <div class="flex gap-3 pt-2">
+                        <button type="button" onclick="goToStep(1)" class="w-1/3 bg-slate-100 text-slate-700 py-4 rounded-xl font-semibold hover:bg-slate-200 transition text-sm">
+                            ← Volver
+                        </button>
+                        <button type="button" onclick="calculateLeak()" class="w-2/3 bg-slate-900 text-white py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg text-base">
+                            Ver mi Fuga en $
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- RESULTADOS Y ROADMAP -->
+            <div id="results" class="hidden mt-8 pt-8 border-t border-slate-200 animate-fadeIn">
+                <div class="text-center mb-6">
+                    <div class="inline-block px-3 py-1 bg-red-50 text-red-600 font-bold text-xs uppercase tracking-widest rounded-full mb-2">
+                        Fuga Estimada de Dinero
+                    </div>
+                    <div id="total-leak" class="text-5xl sm:text-6xl font-extrabold text-slate-900 my-1">$0</div>
+                    <p class="text-xs text-slate-500 max-w-sm mx-auto mt-2">
+                        Dinero perdido mensualmente entre sueldos desaprovechados y ventas no cerradas.
+                    </p>
+                </div>
+
+                <div class="h-52 mb-6 max-w-xs mx-auto">
+                    <canvas id="leakChart"></canvas>
+                </div>
+
+                <!-- Resumen explicativo -->
+                <div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-100 text-xs text-slate-700 space-y-2 mb-6">
+                    <div class="flex justify-between">
+                        <span>💸 Horas pagadas en tareas manuales:</span>
+                        <strong id="breakdown-labor" class="text-slate-900">$0</strong>
+                    </div>
+                    <div class="flex justify-between border-t border-blue-100 pt-2">
+                        <span>📉 Oportunidades de venta perdidas:</span>
+                        <strong id="breakdown-sales" class="text-slate-900">$0</strong>
+                    </div>
+                </div>
+
+                <!-- ROADMAP EN 3 PASOS -->
+                <div class="bg-slate-900 text-white p-6 rounded-2xl mb-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <span class="bg-blue-600 text-white text-[11px] font-extrabold px-2.5 py-1 rounded-full uppercase">¿Cómo lo solucionamos?</span>
+                        <span class="text-xs text-slate-400 font-medium">Metodología GEN IA</span>
+                    </div>
+
+                    <h3 class="text-base font-bold leading-snug">
+                        El Plan para Optimizar tu Operación
+                    </h3>
+
+                    <div class="space-y-3 pt-1">
+                        <!-- Paso 1 -->
+                        <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 flex items-start gap-3">
+                            <div class="bg-blue-600 text-white font-black text-xs h-6 w-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">1</div>
+                            <div class="text-xs">
+                                <strong class="text-white block font-semibold mb-0.5">Entrevista Diagnóstico 1 a 1 (60 Min - GRATIS)</strong>
+                                <p class="text-slate-300">Auditoría online con un Ingeniero Operativo para analizar el día a día de tu equipo.</p>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/60 flex items-start gap-3">
+                            <div class="bg-blue-500 text-white font-black text-xs h-6 w-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">2</div>
+                            <div class="text-xs">
+                                <strong class="text-white block font-semibold mb-0.5">Blueprint de Ingeniería Operativa</strong>
+                                <p class="text-slate-300">Entregable técnico en PDF con la arquitectura exacta, herramientas y propuesta de implementación.</p>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="bg-blue-950/80 p-3.5 rounded-xl border border-blue-500/40 flex items-start gap-3">
+                            <div class="bg-emerald-500 text-slate-950 font-black text-xs h-6 w-6 rounded-full flex items-center justify-center shrink-0 mt-0.5">3</div>
+                            <div class="text-xs">
+                                <strong class="text-emerald-300 block font-semibold mb-0.5">Implementación Acreditada</strong>
+                                <p class="text-slate-200">Si ejecutas el proyecto con nosotros, el abono del estudio se descuenta 100% del valor total.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="https://calendly.com/tu-link" target="_blank" rel="noopener noreferrer" class="block text-center bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition shadow-lg text-base">
+                    Agendar Entrevista Diagnóstico (60 Min Gratis)
+                </a>
+            </div>
+
+        </section>
+
+        <!-- SECCIÓN: SOBRE MÍ / QUIÉN SOY -->
+        <section id="sobre-mi" class="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm space-y-6">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-slate-900 text-white flex items-center justify-center font-black text-3xl sm:text-4xl shrink-0 shadow-lg border-4 border-blue-600">
+                    GIA
+                </div>
+                <div class="space-y-3 text-center md:text-left">
+                    <div class="inline-block px-3 py-1 bg-blue-50 text-blue-700 font-bold text-xs uppercase tracking-wider rounded-full">
+                        Sobre Mí & Filosofía
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+                        Hola, soy tu Consultor de Ingeniería Operativa
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        No soy una agencia tradicional de marketing ni un vendedor de software prefabricado. Mi enfoque es la **Ingeniería Operativa**: entro a tu empresa, entiendo la lógica de tu negocio, mapeo dónde se pierde dinero y construyo flujos automáticos e Inteligencia Artificial a la medida.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        Mi objetivo principal es simple: **liberar a tu equipo de tareas repetitivas** para que se enfoquen en vender y hacer crecer el negocio, mientras las máquinas se encargan del trabajo rutinario.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Principios de Trabajo -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-xs">
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/60">
+                    <strong class="text-slate-900 block font-bold mb-1">1. Diagnóstico Clínico</strong>
+                    <span class="text-slate-500">Analizo los procesos de tu empresa como un auditor antes de proponer cualquier solución.</span>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/60">
+                    <strong class="text-slate-900 block font-bold mb-1">2. Cero Humo</strong>
+                    <span class="text-slate-500">Solo implemento herramientas probadas que generan un retorno de inversión claro en tiempo o ventas.</span>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/60">
+                    <strong class="text-slate-900 block font-bold mb-1">3. Acompañamiento</strong>
+                    <span class="text-slate-500">Entreno a tu equipo para asegurar que adopten las nuevas tecnologías sin fricción ni tropiezos.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CONTACTO DIRECTO -->
+        <section id="contacto" class="bg-slate-900 text-white p-8 sm:p-10 rounded-3xl text-center space-y-6">
+            <div class="max-w-xl mx-auto space-y-3">
+                <h2 class="text-2xl sm:text-3xl font-extrabold">¿Prefieres hablar directamente?</h2>
+                <p class="text-xs sm:text-sm text-slate-300">
+                    Si tienes dudas puntuales o prefieres conversar por WhatsApp antes de agendar la entrevista, escríbeme sin compromiso.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-2">
+                <a href="https://wa.me/tu-numero-aqui?text=Hola,%20quisiera%20consultar%20sobre%20las%20soluciones%20de%20GEN%20IA" target="_blank" class="w-full sm:w-auto bg-emerald-500 text-slate-950 font-bold px-8 py-4 rounded-xl text-sm hover:bg-emerald-400 transition flex items-center justify-center gap-2 shadow-lg">
+                    <span>💬</span> Chatear por WhatsApp Directo
+                </a>
+                <a href="#calculadora" class="w-full sm:w-auto bg-slate-800 text-white border border-slate-700 font-bold px-8 py-4 rounded-xl text-sm hover:bg-slate-700 transition">
+                    Ir a la Calculadora
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-xs text-slate-400 border-t border-slate-200/50 bg-white">
+        © GEN IA — Ingeniería Operativa con Inteligencia Artificial. Todos los derechos reservados.
+    </footer>
+
+    <script>
+        function goToStep(stepNumber) {
+            if (stepNumber === 2) {
+                const name = document.getElementById('lead-name').value.trim();
+                const phone = document.getElementById('lead-phone').value.trim();
+                const industry = document.getElementById('industry').value.trim();
+                const teamSize = document.getElementById('team-size').value;
+
+                if (!name || !phone || !industry) {
+                    alert('Por favor completa tu Nombre, WhatsApp e Industria para continuar.');
+                    return;
+                }
+
+                // FILTRO DE CUALIFICACIÓN: Si es 1 persona, descalifica amablemente
+                if (teamSize === '1') {
+                    document.getElementById('step-1').classList.add('hidden');
+                    document.getElementById('progress-container').classList.add('hidden');
+                    document.getElementById('disqualified-screen').classList.remove('hidden');
+                    
+                    console.log("Lead registrado (Descalificado por tamaño):", { name, phone, industry, teamSize });
+                    return;
+                }
+
+                document.getElementById('step-1').classList.add('hidden');
+                document.getElementById('step-2').classList.remove('hidden');
+                document.getElementById('progress-bar').style.width = '100%';
+                document.getElementById('step-label').innerText = 'PASO 2 DE 2: Fuga Operativa';
+                document.getElementById('step-percent').innerText = '100%';
+            } else {
+                document.getElementById('step-2').classList.add('hidden');
+                document.getElementById('step-1').classList.remove('hidden');
+                document.getElementById('progress-bar').style.width = '50%';
+                document.getElementById('step-label').innerText = 'PASO 1 DE 2: Tu Empresa';
+                document.getElementById('step-percent').innerText = '50%';
+            }
+        }
+
+        function calculateLeak() {
+            const ticketInput = document.getElementById('avg-ticket').value;
+            if (!ticketInput || parseFloat(ticketInput) <= 0) {
+                alert('Por favor ingresa un monto válido de compra habitual ($).');
+                return;
+            }
+
+            const ticket = parseFloat(ticketInput);
+            const teamVal = document.getElementById('team-size').value;
+            const dailyHours = parseFloat(document.getElementById('daily-hours').value);
+            const salary = parseFloat(document.getElementById('salary-range').value);
+            const bottleneck = document.getElementById('main-bottleneck').value;
+
+            let teamMultiplier = 2.5;
+            if (teamVal === '5-10') teamMultiplier = 6;
+            if (teamVal === '11+') teamMultiplier = 12;
+
+            // 1. Pérdida por mano de obra
+            const hourlyRate = salary / 160; 
+            const monthlyManualHoursPerPerson = dailyHours * 20; 
+            const totalLaborLeak = Math.round(hourlyRate * monthlyManualHoursPerPerson * teamMultiplier);
+
+            // 2. Pérdida por ventas/eficiencia según el dolor principal
+            let lostSalesMultiplier = 2;
+            if (bottleneck === 'whatsapp_slow') lostSalesMultiplier = 4;
+            else if (bottleneck === 'manual_errors') lostSalesMultiplier = 3;
+            else if (bottleneck === 'excel_copy') lostSalesMultiplier = 2;
+            else if (bottleneck === 'no_control') lostSalesMultiplier = 3;
+
+            const totalLostSales = Math.round(ticket * lostSalesMultiplier);
+            const totalLeak = totalLaborLeak + totalLostSales;
+
+            // Renderizar resultados
+            document.getElementById('total-leak').innerText = '$' + totalLeak.toLocaleString();
+            document.getElementById('breakdown-labor').innerText = '$' + totalLaborLeak.toLocaleString() + ' /mes';
+            document.getElementById('breakdown-sales').innerText = '$' + totalLostSales.toLocaleString() + ' /mes';
+
+            document.getElementById('results').classList.remove('hidden');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+            // Render Gráfico
+            const ctx = document.getElementById('leakChart').getContext('2d');
+            if (window.myChart) {
+                window.myChart.destroy();
+            }
+
+            window.myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Sueldos Desperdiciados', 'Ventas Perdidas'],
+                    datasets: [{ 
+                        data: [totalLaborLeak, totalLostSales], 
+                        backgroundColor: ['#0f172a', '#2563eb'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+
+            // Payload para Make.com
+            const payload = {
+                name: document.getElementById('lead-name').value,
+                phone: document.getElementById('lead-phone').value,
+                industry: document.getElementById('industry').value,
+                teamSize: teamVal,
+                avgTicket: ticket,
+                dailyHoursLost: dailyHours,
+                salary: salary,
+                bottleneck: bottleneck,
+                totalLeak: totalLeak,
+                timestamp: new Date().toISOString()
+            };
+
+            console.log("Payload para Make.com (Lead Cualificado):", payload);
+        }
+    </script>
+</body>
+</html>
