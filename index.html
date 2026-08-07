@@ -406,8 +406,8 @@
 <!-- JAVASCRIPT LOGIC -->
     <script>
         let myChart = null;
-        // Pega aquí la URL de Google Apps Script si la tienes, de lo contrario déjala vacía ""
-        const GOOGLE_SCRIPT_URL = "";
+        // URL DE GOOGLE APPS SCRIPT CONECTADA
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwSEphXLtvMpzMxp6hiSvHm6eGL66keq5DueBZZfPmE6DlZxJLjID-YWWpNukdjuPbF/exec";
 
         function goToStep(stepNumber) {
             const teamSize = document.getElementById('team-size').value;
@@ -485,7 +485,7 @@
 
             renderChart(monthlyLaborLeak, monthlySalesLeak);
 
-            // 2. Guardar silenciosamente si hay URL de Sheets configurada
+            // 2. Guardar silenciosamente en tu Google Sheet
             if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.length > 10) {
                 try {
                     fetch(GOOGLE_SCRIPT_URL, {
