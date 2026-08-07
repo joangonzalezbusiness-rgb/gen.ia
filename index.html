@@ -403,10 +403,11 @@
             </div>
         </div>
     </footer>
-
-    <!-- JAVASCRIPT LOGIC -->
+<!-- JAVASCRIPT LOGIC -->
     <script>
         let myChart = null;
+        // REEMPLAZA ESTA URL CON LA QUE TE DIO GOOGLE APPS SCRIPT
+        const GOOGLE_SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT";
 
         function goToStep(stepNumber) {
             const teamSize = document.getElementById('team-size').value;
@@ -484,7 +485,23 @@
 
             renderChart(monthlyLaborLeak, monthlySalesLeak);
 
-            // 2. Construir mensaje de WhatsApp con los datos capturados
+            // 2. Guardar silenciosamente en Google Sheets
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== https://script.google.com/macros/s/AKfycbwSEphXLtvMpzMxp6hiSvHm6eGL66keq5DueBZZfPmE6DlZxJLjID-YWWpNukdjuPbF/exec) {
+                fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        industry: industry,
+                        team: teamValue,
+                        leak: `$${totalLeak.toLocaleString()}`
+                    })
+                }).catch(err => console.log("Error guardando lead:", err));
+            }
+
+            // 3. Construir mensaje de WhatsApp
             const wsMessage = `Hola Joan! 👋 Acabo de usar la calculadora en GEN IA.%0A%0A` +
                 `👤 *Nombre:* ${encodeURIComponent(name)}%0A` +
                 `📱 *Teléfono:* ${encodeURIComponent(phone)}%0A` +
@@ -493,7 +510,6 @@
                 `💸 *Fuga estimada:* $${totalLeak.toLocaleString()}/mes%0A%0A` +
                 `Quisiera agendar la sesión diagnóstica gratuita para revisar la operación de mi empresa.`;
 
-            // 3. Asignar el enlace directo a tu WhatsApp al botón de agendar
             const ctaButton = document.querySelector('#results a');
             if (ctaButton) {
                 ctaButton.href = `https://wa.me/584120336111?text=${wsMessage}`;
