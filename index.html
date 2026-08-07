@@ -449,7 +449,11 @@
                 return;
             }
 
+            const name = document.getElementById('lead-name').value;
+            const phone = document.getElementById('lead-phone').value;
+            const industry = document.getElementById('industry').value;
             const teamValue = document.getElementById('team-size').value;
+
             let teamCount = 3; 
             if (teamValue === "2-4") teamCount = 3;
             else if (teamValue === "5-10") teamCount = 7;
@@ -471,6 +475,7 @@
             const monthlySalesLeak = Math.round(ticketInput * lostSalesMultiplier);
             const totalLeak = monthlyLaborLeak + monthlySalesLeak;
 
+            // 1. Mostrar resultados en pantalla
             document.getElementById('total-leak').innerText = `$${totalLeak.toLocaleString()}`;
             document.getElementById('breakdown-labor').innerText = `$${monthlyLaborLeak.toLocaleString()} / mes`;
             document.getElementById('breakdown-sales').innerText = `$${monthlySalesLeak.toLocaleString()} / mes`;
@@ -478,6 +483,22 @@
             document.getElementById('results').classList.remove('hidden');
 
             renderChart(monthlyLaborLeak, monthlySalesLeak);
+
+            // 2. Construir mensaje de WhatsApp con los datos capturados
+            const wsMessage = `Hola Joan! 👋 Acabo de usar la calculadora en GEN IA.%0A%0A` +
+                `👤 *Nombre:* ${encodeURIComponent(name)}%0A` +
+                `📱 *Teléfono:* ${encodeURIComponent(phone)}%0A` +
+                `🏭 *Sector:* ${encodeURIComponent(industry)}%0A` +
+                `👥 *Equipo:* ${encodeURIComponent(teamValue)} personas%0A` +
+                `💸 *Fuga estimada:* $${totalLeak.toLocaleString()}/mes%0A%0A` +
+                `Quisiera agendar la sesión diagnóstica gratuita para revisar la operación de mi empresa.`;
+
+            // 3. Asignar el enlace directo a tu WhatsApp al botón de agendar
+            const ctaButton = document.querySelector('#results a');
+            if (ctaButton) {
+                ctaButton.href = `https://wa.me/584120336111?text=${wsMessage}`;
+                ctaButton.innerText = "📲 Agendar mi Sesión por WhatsApp →";
+            }
 
             document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
         }
