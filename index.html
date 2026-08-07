@@ -406,8 +406,8 @@
 <!-- JAVASCRIPT LOGIC -->
     <script>
         let myChart = null;
-        // REEMPLAZA ESTA URL CON LA QUE TE DIO GOOGLE APPS SCRIPT
-        const GOOGLE_SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_GOOGLE_APPS_SCRIPT";
+        // Pega aquí la URL de Google Apps Script si la tienes, de lo contrario déjala vacía ""
+        const GOOGLE_SCRIPT_URL = "";
 
         function goToStep(stepNumber) {
             const teamSize = document.getElementById('team-size').value;
@@ -426,9 +426,9 @@
                 document.getElementById('step-percent').innerText = "50%";
                 document.getElementById('progress-bar').style.width = "50%";
             } else if (stepNumber === 2) {
-                const name = document.getElementById('lead-name').value;
-                const phone = document.getElementById('lead-phone').value;
-                const industry = document.getElementById('industry').value;
+                const name = document.getElementById('lead-name').value.trim();
+                const phone = document.getElementById('lead-phone').value.trim();
+                const industry = document.getElementById('industry').value.trim();
 
                 if (!name || !phone || !industry) {
                     alert("Por favor completa tu nombre, WhatsApp y sector antes de continuar.");
@@ -450,9 +450,9 @@
                 return;
             }
 
-            const name = document.getElementById('lead-name').value;
-            const phone = document.getElementById('lead-phone').value;
-            const industry = document.getElementById('industry').value;
+            const name = document.getElementById('lead-name').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
+            const industry = document.getElementById('industry').value.trim();
             const teamValue = document.getElementById('team-size').value;
 
             let teamCount = 3; 
@@ -485,20 +485,22 @@
 
             renderChart(monthlyLaborLeak, monthlySalesLeak);
 
-            // 2. Guardar silenciosamente en Google Sheets
-            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== https://script.google.com/macros/s/AKfycbwSEphXLtvMpzMxp6hiSvHm6eGL66keq5DueBZZfPmE6DlZxJLjID-YWWpNukdjuPbF/exec) {
-                fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        name: name,
-                        phone: phone,
-                        industry: industry,
-                        team: teamValue,
-                        leak: `$${totalLeak.toLocaleString()}`
-                    })
-                }).catch(err => console.log("Error guardando lead:", err));
+            // 2. Guardar silenciosamente si hay URL de Sheets configurada
+            if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL.length > 10) {
+                try {
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            name: name,
+                            phone: phone,
+                            industry: industry,
+                            team: teamValue,
+                            leak: `$${totalLeak.toLocaleString()}`
+                        })
+                    }).catch(err => console.log("Error guardando lead:", err));
+                } catch(e) { console.log(e); }
             }
 
             // 3. Construir mensaje de WhatsApp
